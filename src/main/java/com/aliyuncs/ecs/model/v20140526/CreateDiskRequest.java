@@ -16,6 +16,7 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
@@ -25,6 +26,10 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 	
 	public CreateDiskRequest() {
 		super("Ecs", "2014-05-26", "CreateDisk", "ecs");
+		try {
+			this.getClass().getDeclaredField("ProductEndpointMap").set(this, Endpoint.endpointMap);
+			this.getClass().getDeclaredField("ProductEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
@@ -34,6 +39,8 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 	private String resourceOwnerAccount;
 
 	private String clientToken;
+
+	private String performanceLevel;
 
 	private String ownerAccount;
 
@@ -47,6 +54,8 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 
 	private String instanceId;
 
+	private String storageSetId;
+
 	private Integer size;
 
 	private Boolean encrypted;
@@ -54,6 +63,8 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 	private String diskCategory;
 
 	private String zoneId;
+
+	private Integer storageSetPartitionNumber;
 
 	private List<Tag> tags;
 
@@ -104,6 +115,17 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.clientToken = clientToken;
 		if(clientToken != null){
 			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getPerformanceLevel() {
+		return this.performanceLevel;
+	}
+
+	public void setPerformanceLevel(String performanceLevel) {
+		this.performanceLevel = performanceLevel;
+		if(performanceLevel != null){
+			putQueryParameter("PerformanceLevel", performanceLevel);
 		}
 	}
 
@@ -173,6 +195,17 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		}
 	}
 
+	public String getStorageSetId() {
+		return this.storageSetId;
+	}
+
+	public void setStorageSetId(String storageSetId) {
+		this.storageSetId = storageSetId;
+		if(storageSetId != null){
+			putQueryParameter("StorageSetId", storageSetId);
+		}
+	}
+
 	public Integer getSize() {
 		return this.size;
 	}
@@ -214,6 +247,17 @@ public class CreateDiskRequest extends RpcAcsRequest<CreateDiskResponse> {
 		this.zoneId = zoneId;
 		if(zoneId != null){
 			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
+	public Integer getStorageSetPartitionNumber() {
+		return this.storageSetPartitionNumber;
+	}
+
+	public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+		this.storageSetPartitionNumber = storageSetPartitionNumber;
+		if(storageSetPartitionNumber != null){
+			putQueryParameter("StorageSetPartitionNumber", storageSetPartitionNumber.toString());
 		}
 	}
 

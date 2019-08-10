@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
@@ -24,7 +25,13 @@ public class AllocateEipAddressRequest extends RpcAcsRequest<AllocateEipAddressR
 	
 	public AllocateEipAddressRequest() {
 		super("Ecs", "2014-05-26", "AllocateEipAddress", "ecs");
+		try {
+			this.getClass().getDeclaredField("ProductEndpointMap").set(this, Endpoint.endpointMap);
+			this.getClass().getDeclaredField("ProductEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
+
+	private Long activityId;
 
 	private Long resourceOwnerId;
 
@@ -41,6 +48,17 @@ public class AllocateEipAddressRequest extends RpcAcsRequest<AllocateEipAddressR
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	public Long getActivityId() {
+		return this.activityId;
+	}
+
+	public void setActivityId(Long activityId) {
+		this.activityId = activityId;
+		if(activityId != null){
+			putQueryParameter("ActivityId", activityId.toString());
+		}
+	}
 
 	public Long getResourceOwnerId() {
 		return this.resourceOwnerId;

@@ -15,6 +15,7 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
@@ -24,7 +25,13 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 	
 	public DescribePriceRequest() {
 		super("Ecs", "2014-05-26", "DescribePrice", "ecs");
+		try {
+			this.getClass().getDeclaredField("ProductEndpointMap").set(this, Endpoint.endpointMap);
+			this.getClass().getDeclaredField("ProductEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
+
+	private String dataDisk3PerformanceLevel;
 
 	private Integer dataDisk3Size;
 
@@ -40,7 +47,11 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private String systemDiskCategory;
 
+	private String systemDiskPerformanceLevel;
+
 	private String dataDisk4Category;
+
+	private String dataDisk4PerformanceLevel;
 
 	private Integer dataDisk4Size;
 
@@ -62,17 +73,32 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 
 	private Integer dataDisk2Size;
 
+	private String dataDisk1PerformanceLevel;
+
 	private Long ownerId;
 
 	private String resourceType;
 
 	private String dataDisk1Category;
 
+	private String dataDisk2PerformanceLevel;
+
 	private Integer systemDiskSize;
 
 	private String internetChargeType;
 
 	private String instanceNetworkType;
+
+	public String getDataDisk3PerformanceLevel() {
+		return this.dataDisk3PerformanceLevel;
+	}
+
+	public void setDataDisk3PerformanceLevel(String dataDisk3PerformanceLevel) {
+		this.dataDisk3PerformanceLevel = dataDisk3PerformanceLevel;
+		if(dataDisk3PerformanceLevel != null){
+			putQueryParameter("DataDisk.3.PerformanceLevel", dataDisk3PerformanceLevel);
+		}
+	}
 
 	public Integer getDataDisk3Size() {
 		return this.dataDisk3Size;
@@ -151,6 +177,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getSystemDiskPerformanceLevel() {
+		return this.systemDiskPerformanceLevel;
+	}
+
+	public void setSystemDiskPerformanceLevel(String systemDiskPerformanceLevel) {
+		this.systemDiskPerformanceLevel = systemDiskPerformanceLevel;
+		if(systemDiskPerformanceLevel != null){
+			putQueryParameter("SystemDisk.PerformanceLevel", systemDiskPerformanceLevel);
+		}
+	}
+
 	public String getDataDisk4Category() {
 		return this.dataDisk4Category;
 	}
@@ -159,6 +196,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dataDisk4Category = dataDisk4Category;
 		if(dataDisk4Category != null){
 			putQueryParameter("DataDisk.4.Category", dataDisk4Category);
+		}
+	}
+
+	public String getDataDisk4PerformanceLevel() {
+		return this.dataDisk4PerformanceLevel;
+	}
+
+	public void setDataDisk4PerformanceLevel(String dataDisk4PerformanceLevel) {
+		this.dataDisk4PerformanceLevel = dataDisk4PerformanceLevel;
+		if(dataDisk4PerformanceLevel != null){
+			putQueryParameter("DataDisk.4.PerformanceLevel", dataDisk4PerformanceLevel);
 		}
 	}
 
@@ -272,6 +320,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		}
 	}
 
+	public String getDataDisk1PerformanceLevel() {
+		return this.dataDisk1PerformanceLevel;
+	}
+
+	public void setDataDisk1PerformanceLevel(String dataDisk1PerformanceLevel) {
+		this.dataDisk1PerformanceLevel = dataDisk1PerformanceLevel;
+		if(dataDisk1PerformanceLevel != null){
+			putQueryParameter("DataDisk.1.PerformanceLevel", dataDisk1PerformanceLevel);
+		}
+	}
+
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -302,6 +361,17 @@ public class DescribePriceRequest extends RpcAcsRequest<DescribePriceResponse> {
 		this.dataDisk1Category = dataDisk1Category;
 		if(dataDisk1Category != null){
 			putQueryParameter("DataDisk.1.Category", dataDisk1Category);
+		}
+	}
+
+	public String getDataDisk2PerformanceLevel() {
+		return this.dataDisk2PerformanceLevel;
+	}
+
+	public void setDataDisk2PerformanceLevel(String dataDisk2PerformanceLevel) {
+		this.dataDisk2PerformanceLevel = dataDisk2PerformanceLevel;
+		if(dataDisk2PerformanceLevel != null){
+			putQueryParameter("DataDisk.2.PerformanceLevel", dataDisk2PerformanceLevel);
 		}
 	}
 

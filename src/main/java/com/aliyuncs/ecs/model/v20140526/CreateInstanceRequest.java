@@ -16,6 +16,7 @@ package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.RpcAcsRequest;
 import java.util.List;
+import com.aliyuncs.ecs.Endpoint;
 
 /**
  * @author auto create
@@ -25,6 +26,10 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 	
 	public CreateInstanceRequest() {
 		super("Ecs", "2014-05-26", "CreateInstance", "ecs");
+		try {
+			this.getClass().getDeclaredField("ProductEndpointMap").set(this, Endpoint.endpointMap);
+			this.getClass().getDeclaredField("ProductEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	private Long resourceOwnerId;
@@ -44,6 +49,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 	private String hostName;
 
 	private String password;
+
+	private Integer storageSetPartitionNumber;
 
 	private List<Tag> tags;
 
@@ -97,6 +104,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 	private String systemDiskCategory;
 
+	private String systemDiskPerformanceLevel;
+
 	private String userData;
 
 	private Boolean passwordInherit;
@@ -128,6 +137,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 	private String creditSpecification;
 
 	private List<DataDisk> dataDisks;
+
+	private String storageSetId;
 
 	private Integer systemDiskSize;
 
@@ -229,6 +240,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		this.password = password;
 		if(password != null){
 			putQueryParameter("Password", password);
+		}
+	}
+
+	public Integer getStorageSetPartitionNumber() {
+		return this.storageSetPartitionNumber;
+	}
+
+	public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+		this.storageSetPartitionNumber = storageSetPartitionNumber;
+		if(storageSetPartitionNumber != null){
+			putQueryParameter("StorageSetPartitionNumber", storageSetPartitionNumber.toString());
 		}
 	}
 
@@ -521,6 +543,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 		}
 	}
 
+	public String getSystemDiskPerformanceLevel() {
+		return this.systemDiskPerformanceLevel;
+	}
+
+	public void setSystemDiskPerformanceLevel(String systemDiskPerformanceLevel) {
+		this.systemDiskPerformanceLevel = systemDiskPerformanceLevel;
+		if(systemDiskPerformanceLevel != null){
+			putQueryParameter("SystemDisk.PerformanceLevel", systemDiskPerformanceLevel);
+		}
+	}
+
 	public String getUserData() {
 		return this.userData;
 	}
@@ -702,6 +735,7 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".SnapshotId" , dataDisks.get(depth1).getSnapshotId());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Size" , dataDisks.get(depth1).getSize());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Encrypted" , dataDisks.get(depth1).getEncrypted());
+				putQueryParameter("DataDisk." + (depth1 + 1) + ".PerformanceLevel" , dataDisks.get(depth1).getPerformanceLevel());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Description" , dataDisks.get(depth1).getDescription());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".Category" , dataDisks.get(depth1).getCategory());
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".KMSKeyId" , dataDisks.get(depth1).getKMSKeyId());
@@ -709,6 +743,17 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 				putQueryParameter("DataDisk." + (depth1 + 1) + ".DeleteWithInstance" , dataDisks.get(depth1).getDeleteWithInstance());
 			}
 		}	
+	}
+
+	public String getStorageSetId() {
+		return this.storageSetId;
+	}
+
+	public void setStorageSetId(String storageSetId) {
+		this.storageSetId = storageSetId;
+		if(storageSetId != null){
+			putQueryParameter("StorageSetId", storageSetId);
+		}
 	}
 
 	public Integer getSystemDiskSize() {
@@ -799,6 +844,8 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 		private Boolean encrypted;
 
+		private String performanceLevel;
+
 		private String description;
 
 		private String category;
@@ -839,6 +886,14 @@ public class CreateInstanceRequest extends RpcAcsRequest<CreateInstanceResponse>
 
 		public void setEncrypted(Boolean encrypted) {
 			this.encrypted = encrypted;
+		}
+
+		public String getPerformanceLevel() {
+			return this.performanceLevel;
+		}
+
+		public void setPerformanceLevel(String performanceLevel) {
+			this.performanceLevel = performanceLevel;
 		}
 
 		public String getDescription() {

@@ -131,6 +131,10 @@ public class DescribeDisksResponse extends AcsResponse {
 
 		private Boolean encrypted;
 
+		private String storageSetId;
+
+		private Integer storageSetPartitionNumber;
+
 		private Integer mountInstanceNum;
 
 		private Integer iOPS;
@@ -140,6 +144,8 @@ public class DescribeDisksResponse extends AcsResponse {
 		private Integer iOPSWrite;
 
 		private String kMSKeyId;
+
+		private String performanceLevel;
 
 		private String bdfId;
 
@@ -381,6 +387,22 @@ public class DescribeDisksResponse extends AcsResponse {
 			this.encrypted = encrypted;
 		}
 
+		public String getStorageSetId() {
+			return this.storageSetId;
+		}
+
+		public void setStorageSetId(String storageSetId) {
+			this.storageSetId = storageSetId;
+		}
+
+		public Integer getStorageSetPartitionNumber() {
+			return this.storageSetPartitionNumber;
+		}
+
+		public void setStorageSetPartitionNumber(Integer storageSetPartitionNumber) {
+			this.storageSetPartitionNumber = storageSetPartitionNumber;
+		}
+
 		public Integer getMountInstanceNum() {
 			return this.mountInstanceNum;
 		}
@@ -419,6 +441,14 @@ public class DescribeDisksResponse extends AcsResponse {
 
 		public void setKMSKeyId(String kMSKeyId) {
 			this.kMSKeyId = kMSKeyId;
+		}
+
+		public String getPerformanceLevel() {
+			return this.performanceLevel;
+		}
+
+		public void setPerformanceLevel(String performanceLevel) {
+			this.performanceLevel = performanceLevel;
 		}
 
 		public String getBdfId() {
