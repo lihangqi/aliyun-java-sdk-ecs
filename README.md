@@ -1,4 +1,6 @@
 # aliyun-java-sdk-ecs
+[![Build Status](https://dev.azure.com/lingyuntech/aliyun-java-sdk-ecs/_apis/build/status/aliyun-java-sdk-ecs?branchName=azure-pipelines)](https://dev.azure.com/lingyuntech/aliyun-java-sdk-ecs/_build/latest?definitionId=6&branchName=azure-pipelines)
+
 阿里云云服务器ECS开发者工具包（SDK）
 ## 前提条件
 - 使用Alibaba Cloud SDK for Java，您需要一个阿里云账号和访问密钥（AccessKey）。 请在阿里云控制台中的AccessKey管理页面上创建和查看您的AccessKey，或联系您的系统管理员。
