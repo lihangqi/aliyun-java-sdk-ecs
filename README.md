@@ -1,5 +1,6 @@
 <h1 align="center">Aliyun ECS SDK for Java</h1> 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d086b22bb61c40d298daa901ebb7dc39)](https://www.codacy.com/app/weslie0803/aliyun-java-sdk-ecs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=lihangqi/aliyun-java-sdk-ecs&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/lihangqi/aliyun-java-sdk-ecs.svg?branch=master)](https://travis-ci.com/lihangqi/aliyun-java-sdk-ecs)
 [![codecov](https://codecov.io/gh/lihangqi/aliyun-java-sdk-ecs/branch/master/graph/badge.svg)](https://codecov.io/gh/lihangqi/aliyun-java-sdk-ecs)
 
