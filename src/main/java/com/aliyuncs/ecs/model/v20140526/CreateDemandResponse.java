@@ -15,22 +15,18 @@
 package com.aliyuncs.ecs.model.v20140526;
 
 import com.aliyuncs.AcsResponse;
-import com.aliyuncs.ecs.transform.v20140526.ImportImageResponseUnmarshaller;
+import com.aliyuncs.ecs.transform.v20140526.CreateDemandResponseUnmarshaller;
 import com.aliyuncs.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class ImportImageResponse extends AcsResponse {
+public class CreateDemandResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String taskId;
-
-	private String regionId;
-
-	private String imageId;
+	private String demandId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -40,32 +36,16 @@ public class ImportImageResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getTaskId() {
-		return this.taskId;
+	public String getDemandId() {
+		return this.demandId;
 	}
 
-	public void setTaskId(String taskId) {
-		this.taskId = taskId;
-	}
-
-	public String getRegionId() {
-		return this.regionId;
-	}
-
-	public void setRegionId(String regionId) {
-		this.regionId = regionId;
-	}
-
-	public String getImageId() {
-		return this.imageId;
-	}
-
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
+	public void setDemandId(String demandId) {
+		this.demandId = demandId;
 	}
 
 	@Override
-	public ImportImageResponse getInstance(UnmarshallerContext context) {
-		return	ImportImageResponseUnmarshaller.unmarshall(this, context);
+	public CreateDemandResponse getInstance(UnmarshallerContext context) {
+		return	CreateDemandResponseUnmarshaller.unmarshall(this, context);
 	}
 }
