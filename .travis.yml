@@ -25,6 +25,7 @@ script:
   # Test
   - mvn test -B -f ./aliyun-java-sdk-core/pom.xml
   - test -z $daily_accessKeyId -a -z $daily_accessSecret || make travis-test
+  - mvn deploy -Dregistry=https://maven.pkg.github.com/lihangqi -Dtoken=GH_TOKEN
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
