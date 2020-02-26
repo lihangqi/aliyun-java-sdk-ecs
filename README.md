@@ -1,8 +1,7 @@
 <h1 align="center">Aliyun ECS SDK for Java</h1> 
 
-[![CodeFactor](https://www.codefactor.io/repository/github/lihangqi/aliyun-java-sdk-ecs/badge)](https://www.codefactor.io/repository/github/lihangqi/aliyun-java-sdk-ecs)
 [![Build Status](https://travis-ci.com/lihangqi/aliyun-java-sdk-ecs.svg?branch=master)](https://travis-ci.com/lihangqi/aliyun-java-sdk-ecs)
-[![codecov](https://codecov.io/gh/lihangqi/aliyun-java-sdk-ecs/branch/master/graph/badge.svg)](https://codecov.io/gh/lihangqi/aliyun-java-sdk-ecs)
+
 
 阿里云云服务器ECS开发者工具包（SDK）
 ## 前提条件
